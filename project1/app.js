@@ -1,18 +1,19 @@
-const util = require('util');
+const httpServer = require('http').Server;
 const fs = require('fs');
+const util = require('util');
 
-const file = util.promisify(fs.writeFile);
+class myServer extends httpServer{
+    constructor(){
+        super();
+        this.listen(3000);
+        this.on('request', this.requestHendler);
+    }
 
-async function createJson(object, nameFile)
-{
-    const myJson = JSON.stringify(object).split("\n");
-     await file(nameFile, myJson);
+    requestHendler(request, response){
+        fs.readFile('./test.txt', (err, data) => {
+            response.end(data);
+        });
+    }
 }
 
-const myObject = {
-    name: "gal",
-    lastName: "guskovsky",
-    age: 32
-}
-
-createJson(myObject, "users");
+const newServer = new myServer();

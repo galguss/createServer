@@ -1,0 +1,22 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galguss/createServer.git"
+  },
+  "author": "gal gusakovsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galguss/createServer/issues"
+  },
+  "homepage": "https://github.com/galguss/createServer#readme",
+  "dependencies": {
+    "ping": "^0.4.2"
+  }
+}
