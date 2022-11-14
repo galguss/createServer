@@ -1,19 +1,8 @@
-const httpServer = require('http').Server;
 const fs = require('fs');
-const util = require('util');
+const zlib = require('zlib');
 
-class myServer extends httpServer{
-    constructor(){
-        super();
-        this.listen(3000);
-        this.on('request', this.requestHendler);
-    }
+const readStream = fs.createReadStream('./test.txt');
+const writeStream = fs.createWriteStream('./out.gz');
+const gzip = zlib.createGzip();
 
-    requestHendler(request, response){
-        fs.readFile('./test.txt', (err, data) => {
-            response.end(data);
-        });
-    }
-}
-
-const newServer = new myServer();
+readStream.pipe(gzip).pipe(writeStream);
