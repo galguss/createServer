@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+         <%- include("layout/header") %>
+        <div id="bodyPage">
+            <form id="createUser">
+                <h2>צור כותב חדש</h2>
+                <label><input id="userName" type="text" required>:שם משתמש</label>
+                <!--<label><input id="password" type="password">:סיסמה</label>-->
+                <label><input id="email" type="email" required>:דואר אלקטרוני</label>
+                <label><input id="github" type="text">:github</label>
+                <label><input id="fullName" type="text" required>:שם מלא</label>
+                <br />
+                <br />
+                <button>צור כותב</button>
+            </form>
+            <h4 class="data_block" id="index_data_block"></h4>
+        </div>
+        <%- include("layout/footer") %>
+        <script src="/js/admin.js"></script>
+</body>
+</html>
